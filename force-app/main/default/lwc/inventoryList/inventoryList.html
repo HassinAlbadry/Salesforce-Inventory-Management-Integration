@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Inventory List">
+        <lightning-datatable
+            key-field="Id"
+            data={inventoryItems}
+            columns={columns}
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </lightning-card>
+
+    <template if:true={selectedItem}>
+        <lightning-card title="Update Inventory">
+            <lightning-input label="Quantity" value={quantity} onchange={handleQuantityChange}></lightning-input>
+            <lightning-button label="Update" onclick={updateInventory}></lightning-button>
+        </lightning-card>
+    </template>
+</template>
